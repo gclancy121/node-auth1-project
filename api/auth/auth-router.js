@@ -35,7 +35,7 @@ const Users = require('../users/users-model');
       const username = req.body.username;
       const hash = bcrypt.hashSync(password, 12);
       const user = await Users.add({username, password:hash});
-      res.status(201).json({message: `You are now registered, ${username}!`})
+      res.status(201).json(user);
     }catch(err) {
       next(err)
     }
